@@ -98,6 +98,7 @@ export const MiPerfil = () => {
               src={profileImage}
               alt="Imagen de perfil"
               className="profile-image"
+              loading="lazy"
             />
           ) : (
             <div className="profile-circle"></div>

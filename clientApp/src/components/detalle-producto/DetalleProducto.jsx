@@ -52,13 +52,13 @@ export const DetalleProducto = () => {
   return (
     <div className="detalle-producto">
       <div className="logo-producto">
-        <img src={logos[categoria]} alt="Logo de la marca" />
-      </div> 
+        <img src={logos[categoria]} alt="Logo de la marca" loading="lazy" />
+      </div>
       <div className="producto-info">
         <h2 className="producto-nombre">{product.name}</h2>
         <p className="producto-descripcion">{product.description}</p>
         <div className="producto-imagen">
-          <img src={product.imageProfile} alt="Producto" />
+          <img src={product.imageProfile} alt="Producto" loading="lazy" />
         </div>
         <p className="producto-precio">
           <big>Precio:</big>
