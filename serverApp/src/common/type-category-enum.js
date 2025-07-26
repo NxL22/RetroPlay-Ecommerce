@@ -9,4 +9,4 @@ const CategoryType = {
   };
   
   export default CategoryType;
-  
+
