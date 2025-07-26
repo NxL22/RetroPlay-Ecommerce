@@ -1,5 +1,5 @@
 // Importa la función para subir la imagen de perfil desde el archivo de configuración
-import { uploadImageProfile } from "../config/cloudinary.js";
+import { uploadImageProfile, deleteProfileImage } from "../config/cloudinary.js";
 
 // Importa el modelo de datos de usuario desde el archivo '../database/user.entity.js'
 import USER from "../database/user.entity.js";
@@ -241,3 +241,4 @@ async function findUserByEmail(email) {
     throw new Error("Error al buscar el usuario: " + error.message);
   }
 }
+
