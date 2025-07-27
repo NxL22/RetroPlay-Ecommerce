@@ -50,7 +50,8 @@ const Carrito = () => {
               <ul>
                 {car.map((producto, index) => (
                   <li key={index}>
-                    {producto.name} - ${producto.price} - Cantidad: {producto.cantidad}
+                    {producto.nombre} - ${producto.precio} - Cantidad:{" "}
+                    {producto.cantidad}
                     <button onClick={() => onEliminarProducto(producto.id)}>
                       Eliminar
                     </button>

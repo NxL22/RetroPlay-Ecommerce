@@ -11,8 +11,6 @@ export const MiPerfil = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [profileImage, setProfileImage] = useState(null);
-  const [profileFile, setProfileFile] = useState(null);
-  const [userId, setUserId] = useState(null);
 
   const toggleEditing = () => {
     setIsEditing(!isEditing);
@@ -26,36 +24,33 @@ export const MiPerfil = () => {
     setEmail(e.target.value);
   };
 
-  const handleSaveProfile = async () => {
+  const handleChangeImage = () => {
+    // Obtén el token de administrador del localStorage
     const adminToken = localStorage.getItem("token");
-    const headers = { Authorization: `Bearer ${adminToken}` };
 
-    try {
-      if (userId) {
-        await axios.put(`http://localhost:3000/user/${userId}`, { fullname: name }, { headers });
-      }
+    // Configura los encabezados de la solicitud axios con el token de administrador
+    const headers = {
+      Authorization: `Bearer ${adminToken}`,
+      "Content-Type": "multipart/form-data", // Importante para enviar archivos
+    };
 
-      if (profileFile) {
-        const formData = new FormData();
-        formData.append("image", profileFile);
-        await axios.put(
-          "http://localhost:3000/user/change/profile-image",
-          formData,
-          {
-            headers: { ...headers, "Content-Type": "multipart/form-data" },
-          }
-        );
-      }
+    // Crea un objeto FormData y agrega la imagen
+    const formData = new FormData();
+    formData.append("image", profileImage); // Asegúrate de que 'profileImage' contenga la imagen
 
-      setIsEditing(false);
-    } catch (error) {
-      console.error("Error al guardar el perfil:", error);
-    }
+    // Realiza la solicitud PUT al servidor con el FormData y los encabezados
+    axios
+      .put("http://localhost:3000/user/change/profile-image", formData, { headers })
+      .then((response) => {
+        console.log("Imagen subida exitosamente:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error al subir la imagen:", error);
+      });
   };
 
   const onDrop = (acceptedFiles) => {
     const image = acceptedFiles[0];
-    setProfileFile(image);
     const reader = new FileReader();
     reader.onload = () => {
       setProfileImage(reader.result);
@@ -81,7 +76,8 @@ export const MiPerfil = () => {
         setName(userData.fullname);
         setEmail(userData.email);
         setProfileImage(userData.profilePicture);
-        setUserId(userData.id);
+        console.log('aaaaaaaaaaaa');
+        console.log(userData);
       })
       .catch((error) => {
         console.error("Error al obtener los datos del usuario:", error);
@@ -98,7 +94,6 @@ export const MiPerfil = () => {
               src={profileImage}
               alt="Imagen de perfil"
               className="profile-image"
-              loading="lazy"
             />
           ) : (
             <div className="profile-circle"></div>
@@ -120,7 +115,14 @@ export const MiPerfil = () => {
               onChange={handleEmailChange}
               placeholder="Correo electrónico"
             />
-            <button onClick={handleSaveProfile}>Guardar</button>
+            <button
+              onClick={() => {
+                toggleEditing();
+                handleChangeImage();
+              }}
+            >
+              Guardar
+            </button>
           </div>
         ) : (
           <>
@@ -138,4 +140,3 @@ export const MiPerfil = () => {
     </div>
   );
 }
-

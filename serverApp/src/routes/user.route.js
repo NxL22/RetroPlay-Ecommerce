@@ -77,6 +77,9 @@ userRoutes.put(
   authenticateJWT, // Middleware de autenticación JWT
   fileUpload(uploadOptions), // Middleware para cargar archivos con las opciones de carga de archivos
   async (req, res) => {
+
+
+    console.log(req.files);
     const newImage = req.files?.image; // Obtener la nueva imagen de perfil desde la solicitud
 
     try {

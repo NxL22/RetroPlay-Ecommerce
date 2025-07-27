@@ -14,12 +14,12 @@ function CarouselSlider({ img1, img2 }) {
     <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
         <div className="carousel-image-container">
-          <img className="carousel-image" src={img1} alt="primer banner de xbox" loading="lazy" />
+          <img className="carousel-image" src={img1} alt="primer banner de xbox" />
         </div>
       </Carousel.Item>
       <Carousel.Item>
         <div className="carousel-image-container">
-          <img className="carousel-image" src={img2} alt="Segundo banner de Switch" loading="lazy" />
+          <img className="carousel-image" src={img2} alt="Segundo banner de Switch" />
         </div>
       </Carousel.Item>
     </Carousel>

@@ -25,7 +25,7 @@ a:hover {
 }
 
 body {
-  font-family: 'VT323', monospace;
+
   background-image: url(./assets/pattern.png);
   background-repeat: repeat;
   /* display: flex; */
@@ -35,13 +35,8 @@ body {
 }
 
 h1 {
-  font-family: 'Press Start 2P', cursive;
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-h2, h3, h4 {
-  font-family: 'Press Start 2P', cursive;
 }
 
 button {

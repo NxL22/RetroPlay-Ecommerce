@@ -21,9 +21,9 @@ export const NavModel = () => {
       <Navbar bg="dark" variant="dark">
         <Container className="space-between">
           <div className="header-container">
-          <div className="logo-container">
-              <img src={logo} alt="Logo de la aplicación" className="logo" loading="lazy" />
-          </div>
+            <div className="logo-container">
+              <img src={logo} alt="Logo de la aplicación" className="logo" />
+            </div>
             <div className="retroplay-text">
               RetroPlay
             </div>
