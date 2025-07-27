@@ -22,7 +22,6 @@ export const SliderProductos = ({ handleSelect, index, pageProductos }) => {
                         src={productoGrupo.imageProfile}
                         style={{ width: '100%' }}
                         alt={productoGrupo.name}
-                        loading="lazy"
                       />
                       <h3>{productoGrupo.name}</h3>
                       <p>${productoGrupo.price}</p>

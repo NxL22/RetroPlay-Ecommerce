@@ -9,7 +9,7 @@ config(); // Cargar las variables de entorno desde el archivo .env
 async function bootstrap() {
     try {
         // Sincronizar el modelo de datos con la base de datos (opcionalmente forzando la creación de tablas si se establece "force" en true)
-        await sequelize.sync({ force: false });
+        await sequelize.sync({ force: true });
 
         // Llamar a la función createAdminIfNotExists para crear un administrador si no existe
         await createAdminIfNotExists();

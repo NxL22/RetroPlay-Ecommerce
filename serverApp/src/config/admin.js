@@ -22,9 +22,9 @@ async function createAdminIfNotExists() {
         status: "active", // Establecer el estado como "activo"
       });
 
-      // Administrador creado
+      console.log("Administrador creado exitosamente.");
     } else {
-      // Ya existe un administrador
+      console.log("El administrador ya existe en la base de datos.");
     }
   } catch (error) {
     console.error("Error al crear el administrador:", error); // Manejar errores en caso de que ocurran

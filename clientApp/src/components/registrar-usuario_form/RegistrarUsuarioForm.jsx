@@ -53,6 +53,7 @@ export const RegistrarUsuarioForm = () => {
         }
       );
 
+      console.log("Registration successful:", response.data); // Muestra un mensaje en la consola en caso de registro exitoso
     } catch (error) {
       console.error("Registration failed:", error); // Muestra un mensaje de error en la consola en caso de registro fallido
     }

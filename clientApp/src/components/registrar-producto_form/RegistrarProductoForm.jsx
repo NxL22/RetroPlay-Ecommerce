@@ -44,11 +44,13 @@ const RegistrarProductoForm = () => {
     try {
       // Obtén el token de administrador del localStorage
       const adminToken = localStorage.getItem('token');
+      console.log(adminToken);
 
       // Configura los encabezados de la solicitud axios con el token de administrador
       const headers = {
         Authorization: `Bearer ${adminToken}`,
       };
+      console.log(headers);
 
       // Crea un objeto FormData para enviar archivos
       const formData = new FormData();
@@ -68,6 +70,8 @@ const RegistrarProductoForm = () => {
       const response = await axios.post('http://localhost:3000/product', formData, {
         headers,
       });
+
+      console.log('Respuesta del servidor:', response.data);
 
       // Limpia los campos del formulario
       setProduct({

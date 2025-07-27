@@ -35,10 +35,3 @@ export async function deleteImageProduct(id) {
   const result = await cloudinary.uploader.destroy(id); // Eliminar la imagen por su ID en Cloudinary
   return result; // Devolver el resultado de la eliminación de la imagen en Cloudinary
 }
-
-// Función para eliminar una imagen de perfil en Cloudinary
-export async function deleteProfileImage(id) {
-  const result = await cloudinary.uploader.destroy(id);
-  return result;
-}
-
