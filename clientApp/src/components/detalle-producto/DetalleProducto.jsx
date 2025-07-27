@@ -21,7 +21,6 @@ export const DetalleProducto = () => {
           `http://localhost:3000/product/${producto}`
         );
         const data = await response.json();
-        console.log(data);
         setProduct(data);
       } catch (error) {
         console.error("Error en la solicitud:", error);
@@ -35,8 +34,8 @@ export const DetalleProducto = () => {
     // Lógica para agregar el producto al carrito
     agregarProductoAlCarrito({
       id: product.id,
-      nombre: product.nombre,
-      precio: product.price,
+      name: product.name,
+      price: product.price,
       cantidad: 1, // Puedes ajustar la cantidad según tus necesidades
     });
   }; //AQUI NUEVO
@@ -53,13 +52,13 @@ export const DetalleProducto = () => {
   return (
     <div className="detalle-producto">
       <div className="logo-producto">
-        <img src={logos[categoria]} alt="Logo de la marca" />
-      </div> 
+        <img src={logos[categoria]} alt="Logo de la marca" loading="lazy" />
+      </div>
       <div className="producto-info">
-        <h2 className="producto-nombre">{product.nombre}</h2>
-        <p className="producto-descripcion">{product.descripcion}</p>
+        <h2 className="producto-nombre">{product.name}</h2>
+        <p className="producto-descripcion">{product.description}</p>
         <div className="producto-imagen">
-          <img src={product.imageProfile} alt="Producto" />
+          <img src={product.imageProfile} alt="Producto" loading="lazy" />
         </div>
         <p className="producto-precio">
           <big>Precio:</big>

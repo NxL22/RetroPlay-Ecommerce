@@ -62,7 +62,6 @@ const [errorAlert, setErrorAlert] = useState(false);
 
       // Cierra el modal u realiza otras acciones necesarias
       setIsModalOpen(false);
-      console.log("Login successful:", response.data); // Muestra un mensaje en la consola en caso de inicio de sesión exitoso
     } catch (error) {
       console.error("Login failed:", error); // Muestra un mensaje de error en la consola en caso de inicio de sesión fallido
     }
